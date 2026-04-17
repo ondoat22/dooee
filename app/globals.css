@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 텍스트 복사 방지 */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* icon tile 90도 회전 애니메이션 */
+@keyframes spin90 {
+  0%   { transform: rotate(0deg); }
+  22%  { transform: rotate(0deg); }
+  27%  { transform: rotate(90deg); }
+  47%  { transform: rotate(90deg); }
+  52%  { transform: rotate(180deg); }
+  72%  { transform: rotate(180deg); }
+  77%  { transform: rotate(270deg); }
+  97%  { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.icon-tile {
+  animation: spin90 8s infinite;
+}
