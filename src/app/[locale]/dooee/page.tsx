@@ -121,17 +121,17 @@ export default async function DooeePage({
       <DooeeStickyNav backLabel={t('back')} />
 
       <div className="max-w-[1100px] mx-auto px-12 pt-14 pb-28 max-[720px]:px-6 max-[720px]:pt-10 max-[720px]:pb-20">
-        <h1 className={`text-[48px] font-medium -tracking-[0.01em] leading-none ${C.primary} mb-12 max-[720px]:text-[32px]`}>
+        <h1 className={`text-[34px] font-medium -tracking-[0.01em] leading-none ${C.primary} mb-12 max-[720px]:text-[22px]`}>
           {t('name')}
         </h1>
 
         {/* About */}
         <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
-          <h2 className={`text-[clamp(1.4rem,2.5vw,2rem)] font-medium ${C.primary} leading-tight`}>
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('aboutLabel')}
           </h2>
           <div>
-            <div className="grid grid-cols-[160px_1fr] gap-x-8 py-4 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2">
+            <div className="grid grid-cols-[160px_1fr] gap-x-8 pb-4 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2">
               <div className={`text-[15px] ${C.primary} pt-px`}>{t('aboutLabel')}</div>
               <ul className="list-none">
                 {aboutItems.map((item, i) => (
@@ -149,15 +149,15 @@ export default async function DooeePage({
 
         {/* Proficiencies */}
         <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
-          <h2 className={`text-[clamp(1.4rem,2.5vw,2rem)] font-medium ${C.primary} leading-tight`}>
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secProf')}
           </h2>
           <div>
             {prof.map((g, i) => (
               <div
                 key={i}
-                className={`grid grid-cols-[160px_1fr] gap-x-8 py-4 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2 ${
-                  i > 0 ? `border-t ${C.border}` : ''
+                className={`grid grid-cols-[160px_1fr] gap-x-8 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2 ${
+                  i === 0 ? 'pb-4' : `py-4 border-t ${C.border}`
                 }`}
               >
                 <div className={`text-[15px] ${C.primary} pt-px`}>{g.label}</div>
@@ -175,14 +175,14 @@ export default async function DooeePage({
 
         {/* Work */}
         <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
-          <h2 className={`text-[clamp(1.4rem,2.5vw,2rem)] font-medium ${C.primary} leading-tight`}>
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secWork')}
           </h2>
           <div>
             {jobs.map((j, idx) => (
               <div
                 key={idx}
-                className={`py-4 max-w-[380px] ${idx > 0 ? `border-t ${C.border}` : ''}`}
+                className={`max-w-[380px] ${idx === 0 ? 'pb-4' : `py-4 border-t ${C.border}`}`}
               >
                 <div className={`text-[15px] font-normal ${C.primary} mb-1.5`}>{j.title}</div>
                 <MetaRow>
@@ -196,13 +196,12 @@ export default async function DooeePage({
                   <ul className="list-none">
                     {j.bullets.map((b, bi) => (
                       <li key={bi} className="pl-3 relative mb-1.5 text-[13px] leading-[1.45]">
-                        <span className={`absolute left-0 ${C.dim}`}>—</span>
+                        <span className={`absolute left-0 top-[0.725em] -translate-y-1/2 w-[4px] h-[4px] rounded-full bg-current ${C.dim}`} />
                         {b.text}
                         {b.sub.length > 0 && (
                           <ul className="mt-1 mb-2 list-none pl-1">
                             {b.sub.map((s, si) => (
-                              <li key={si} className={`pl-3.5 relative mb-[3px] ${C.dim}`}>
-                                <span className={`absolute left-0 ${C.dim}`}>—</span>
+                              <li key={si} className={`mb-[3px] ${C.dim}`}>
                                 {s}
                               </li>
                             ))}
@@ -219,7 +218,7 @@ export default async function DooeePage({
 
         {/* Projects */}
         <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
-          <h2 className={`text-[clamp(1.4rem,2.5vw,2rem)] font-medium ${C.primary} leading-tight`}>
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secProj')}
           </h2>
           <div>
@@ -254,7 +253,7 @@ export default async function DooeePage({
 
         {/* Contact */}
         <section className="grid grid-cols-[280px_1fr] gap-0 items-start max-[720px]:grid-cols-1 max-[720px]:gap-5">
-          <h2 className={`text-[clamp(1.4rem,2.5vw,2rem)] font-medium ${C.primary} leading-tight`}>
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secContact')}
           </h2>
           <div>

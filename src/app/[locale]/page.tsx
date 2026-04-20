@@ -15,7 +15,11 @@ export default async function MainPage({
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-white text-neutral-900 dark:bg-ondo-bg dark:text-white flex flex-col items-center justify-center">
-      <HeaderControls position="fixed" />
+      <div className="absolute top-0 inset-x-0 z-[100]">
+        <div className="max-w-[1100px] mx-auto flex items-center justify-end px-12 py-5 max-[720px]:px-6 max-[720px]:py-4">
+          <HeaderControls position="inline" />
+        </div>
+      </div>
 
       <div className="flex flex-1 flex-col items-center justify-center text-center pb-[200px] max-[480px]:pb-[120px]">
         <p className="text-[17px] font-normal -tracking-[0.01em] text-black dark:text-white mb-5">
@@ -47,7 +51,7 @@ export default async function MainPage({
             alt=""
             width={61}
             height={60}
-            className="stamp-icon w-[61px] h-[60px] block max-[700px]:w-[58px] max-[700px]:h-[58px] [filter:drop-shadow(-3px_3px_4px_rgba(180,180,180,0.6))]"
+            className="stamp-icon w-[61px] h-[60px] block max-[700px]:w-[58px] max-[700px]:h-[58px] [filter:drop-shadow(-3px_3px_4px_rgba(180,180,180,0.6))] dark:[filter:drop-shadow(-3px_3px_4px_rgba(120,120,120,0.35))]"
             priority
           />
         </Link>

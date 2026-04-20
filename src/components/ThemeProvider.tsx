@@ -20,14 +20,15 @@ function readStoredTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Read directly from localStorage on mount — the source of truth.
-  // The FOUC inline script in <head> already set the matching class
-  // before paint, so React state and DOM start in sync.
-  const [theme, setTheme] = useState<Theme>(readStoredTheme);
+  // Start with 'light' so server and first client render match (prevents hydration mismatch).
+  // After mount, sync to localStorage — the FOUC inline script already applied the correct
+  // class to <html>, so no visual flash.
+  const [theme, setTheme] = useState<Theme>('light');
 
-  // Runs synchronously after DOM mutations and before paint,
-  // restoring the dark class even if React reconciliation removes it
-  // (e.g. when the layout re-renders on locale change).
+  useEffect(() => {
+    setTheme(readStoredTheme());
+  }, []);
+
   useIsoLayoutEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);

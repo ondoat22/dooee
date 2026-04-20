@@ -1,13 +1,17 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-const INITIAL_ROT = [0, 90, 180, 270, 0, 90, 180, 270, 0, 90, 180, 270];
+const TILE_COUNT = 12;
+const INITIAL_STATE = {
+  rots: Array.from({ length: TILE_COUNT }, (_, i) => (i * 90) % 360),
+  cursor: 0,
+};
 
 const stripClass = [
   'absolute bottom-[60px] left-0 right-0',
-  'flex items-center justify-center gap-[11px] px-5 overflow-hidden',
+  'flex items-center justify-center gap-[11px] px-5 overflow-x-clip overflow-y-visible py-3',
   'max-[700px]:gap-[7px]',
   'max-[480px]:gap-[5px] max-[480px]:pb-6',
 ].join(' ');
@@ -19,24 +23,24 @@ const tileWrapClass = [
 ].join(' ');
 
 export default function IconStrip() {
-  const [rots, setRots] = useState<number[]>(INITIAL_ROT);
-  const cursor = useRef(0);
+  const [{ rots }, setState] = useState(INITIAL_STATE);
 
   useEffect(() => {
-    const tick = () => {
-      setRots((prev) => {
-        const next = [...prev];
-        next[cursor.current] += 90;
-        cursor.current = (cursor.current + 1) % prev.length;
-        return next;
+    const tick = () =>
+      setState((s) => {
+        const next = [...s.rots];
+        next[s.cursor] += 90;
+        return { rots: next, cursor: (s.cursor + 1) % next.length };
       });
-    };
 
-    const first = setTimeout(tick, 800);
-    const interval = setInterval(tick, 600);
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const first = setTimeout(() => {
+      tick();
+      interval = setInterval(tick, 600);
+    }, 800);
     return () => {
       clearTimeout(first);
-      clearInterval(interval);
+      if (interval) clearInterval(interval);
     };
   }, []);
 
