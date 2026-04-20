@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #fff;
+    color: #111;
+    -webkit-tap-highlight-color: transparent;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* Korean font override */
+  html[lang="kr"] body,
+  html[lang="kr"] * {
+    font-family: 'Gowun Dodum', sans-serif;
+  }
+}
+
+@layer components {
+  /* Stamp button icon — no shadow */
+  .stamp-icon {
+    transition: transform 0.15s;
+  }
+  .stamp-wrap:hover .stamp-icon {
+    transform: rotate(-12deg);
+  }
+  .stamp-wrap:active .stamp-icon {
+    transform: rotate(-12deg) scale(0.92);
+  }
+
+  .icon-tile-img {
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.25;
+  }
+}

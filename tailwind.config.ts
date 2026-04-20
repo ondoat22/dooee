@@ -1,22 +1,25 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-        gowun: ['"Gowun Dodum"', 'sans-serif'],
-      },
       colors: {
-        'ondo-red': '#E8210A',
+        ondo: {
+          red: '#e8210a',
+          bg: '#141414',
+          card: '#1c1c1c',
+          card2: '#222',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'sans-serif'],
+        kr: ['"Gowun Dodum"', 'sans-serif'],
       },
     },
   },
   plugins: [],
-}
+};
 
-export default config
+export default config;

@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "ONDO Architects",
+    "description": "We design spaces with the right temperature for where they belong.",
+    "dooeeTitle": "Dooee Kim — Architect & Product Owner | ONDO",
+    "dooeeDescription": "Architect and Product Owner, turning ideas into spaces and services."
+  },
+  "main": {
+    "title": "ONDO",
+    "welcome": "Welcome to ONDO Architects.",
+    "tagline": "Just as everyone has a different temperature,<br/>we believe every space requires its own warmth—tailored to its users.",
+    "sub": "We design spaces with the right temperature for where they belong.",
+    "construction": "Our website is currently under construction.<br/>For more information, please click the button below.",
+    "stampAria": "Enter portfolio"
+  },
+  "dooee": {
+    "back": "ondo.at",
+    "name": "Dooee Kim",
+    "aboutLabel": "About",
+    "aboutItems": ["Architect", "Product Owner", "Based in Korea", "10+ Years Experience", "Open to Work"],
+    "aboutDesc": "Architect and Product Owner, turning ideas into spaces and services.",
+    "secProf": "Proficiencies",
+    "prof": [
+      { "label": "Skills", "items": ["Architectural Design", "Interior Design", "Spatial Design", "Product Management", "Product Strategy"] },
+      { "label": "Design Tools", "items": ["Autodesk Software", "Adobe Creative Cloud", "Rhino", "SketchUp"] },
+      { "label": "Collaboration Tools", "items": ["Google Workspace", "Slack", "Notion", "Figma (basic)"] },
+      { "label": "AI Tools", "items": ["Chat GPT", "Claude", "Gemini"] }
+    ],
+    "secWork": "Work",
+    "jobs": [
+      {
+        "title": "Product Owner / Architect",
+        "date": "2020 - Now",
+        "company": "HOWBUILD",
+        "location": "Korea",
+        "desc": "Bridging architecture and technology by leading digital product development for the built environment.",
+        "desc2": "Led the planning and launch of IT products for the architecture and construction industry, serving clients, architects, and contractors.",
+        "bullets": [
+          { "text": "Developed digital services:", "sub": ["Howbuild Sketch (pre-design feasibility insights)", "Howbuild PM Service (project planning documentation)", "ArchiHere Design & Bidding Platform", "Howbuild Website Redesign", "Howbuild Navigation (construction site data service)"] },
+          { "text": "Participated in government-funded R&D (MOLIT):", "sub": ["Digital energy diagnostics and automated design systems for green remodeling"] },
+          { "text": "Software registration and patent completed", "sub": [] }
+        ]
+      },
+      {
+        "title": "Architectural Designer",
+        "date": "2015 - 2020",
+        "company": "Boundless, ZMJ",
+        "location": "Seoul",
+        "desc": "Managed architectural design and approvals across various building types.",
+        "desc2": "",
+        "bullets": [
+          { "text": "Residential (single-family, multi-family)", "sub": [] },
+          { "text": "Commercial, retail, and office facilities", "sub": [] },
+          { "text": "Full process: permitting to occupancy approval", "sub": [] },
+          { "text": "Planned and executed solar-powered parking structures", "sub": [] }
+        ]
+      },
+      {
+        "title": "Interior Designer",
+        "date": "2015 - 2020",
+        "company": "Boundless, Freelancer",
+        "location": "Seoul",
+        "desc": "Planned and delivered interior projects with a focus on branding and user experience.",
+        "desc2": "",
+        "bullets": [
+          { "text": "Premium study café development", "sub": ["(with branding collaboration)"] },
+          { "text": "Restaurant and café projects (freelance)", "sub": [] },
+          { "text": "From concept to completion, including approvals", "sub": [] }
+        ]
+      },
+      {
+        "title": "Internship",
+        "date": "2012",
+        "company": "hANd",
+        "location": "Seoul",
+        "desc": "Participated in the design planning of a tourism complex project.",
+        "desc2": "",
+        "bullets": [
+          { "text": "Supported concept development and master planning", "sub": [] },
+          { "text": "Assisted in early-stage design and research", "sub": [] }
+        ]
+      }
+    ],
+    "secProj": "Projects",
+    "projects": [
+      { "name": "ARCHI-HERE", "sub": "HOWBUILD", "href": "https://archi-here.howbuild.com/projects" },
+      { "name": "Detached House in Songdo + Smacon", "sub": "ONDO + HOWBUILD", "href": "https://smacon.howbuild.com/sites/demo/quantity-review" },
+      { "name": "Detached House in Cheongna", "sub": "ZMJ", "href": "https://naver.me/FbV9QxQ4" },
+      { "name": "HAKDONG OFFICE (ESPACE)", "sub": "BOUNDLESS", "href": "https://c3globe.com/espace-by-zero-to-n/" }
+    ],
+    "secContact": "Contact",
+    "contactLabel": "Mail"
+  }
+}
