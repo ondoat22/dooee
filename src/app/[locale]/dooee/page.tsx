@@ -266,7 +266,15 @@ export default async function DooeePage({
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-neutral-100 dark:bg-ondo-card rounded-lg px-3.5 py-3 transition-colors hover:bg-neutral-200 dark:hover:bg-ondo-card2 group"
                 >
-                  <div className={`w-9 h-9 rounded-[7px] flex-shrink-0 overflow-hidden flex items-center justify-center ${i === 1 ? 'bg-transparent' : 'bg-neutral-200 dark:bg-black'}`}>
+                  <div className={`w-9 h-9 flex-shrink-0 overflow-hidden flex items-center justify-center ${
+                    i === 1
+                      ? 'rounded-[7px] bg-transparent'
+                      : i === 2
+                        ? 'rounded-[4px] bg-neutral-200 dark:bg-black'
+                        : i === 3
+                          ? 'rounded-full bg-black'
+                          : 'bg-neutral-200 dark:bg-black'
+                  }`}>
                     <Image
                       src={projLogos[i]}
                       alt=""
