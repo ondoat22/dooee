@@ -36,6 +36,7 @@
         "desc": "Bridging architecture and technology by leading digital product development for the built environment.",
         "desc2": "Led the planning and launch of IT products for the architecture and construction industry, serving clients, architects, and contractors.",
         "bullets": [
+          { "text": "Collaboration project with Korean Institute of Registered Architects (KIRA), Seoul Chapter", "sub": ["Serving as TF committee member and Product Owner of the Architect Platform initiative"] },
           { "text": "Developed digital services:", "sub": ["Howbuild Sketch (pre-design feasibility insights)", "Howbuild PM Service (project planning documentation)", "ArchiHere Design & Bidding Platform", "Howbuild Website Redesign", "Howbuild Navigation (construction site data service)"] },
           { "text": "Participated in government-funded R&D (MOLIT):", "sub": ["Digital energy diagnostics and automated design systems for green remodeling"] },
           { "text": "Software registration and patent completed", "sub": [] }
@@ -116,7 +117,7 @@
         "date": "2015",
         "company": "Magazine of Architecture and Culture",
         "location": "",
-        "desc": "Featured: The Memorial Architecture in an Urban Context: Designing the Presence of Something Absent"
+        "desc": "The Memorial Architecture in an Urban Context: Designing the Presence of Something Absent"
       },
       {
         "title": "Design Studio Critic / Reviewer",
