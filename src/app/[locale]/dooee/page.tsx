@@ -135,9 +135,7 @@ export default async function DooeePage({
 
         {/* About */}
         <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
-          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
-            {t('aboutLabel')}
-          </h2>
+          <div aria-hidden />
           <div>
             <div className="grid grid-cols-[160px_1fr] gap-x-8 pb-4 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2">
               <div className={`text-[15px] ${C.primary} pt-px`}>{t('aboutLabel')}</div>
