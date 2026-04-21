@@ -81,6 +81,51 @@
         ]
       }
     ],
+    "secRecognition": "활동 내역",
+    "recognition": [
+      {
+        "title": "DAF 2014, ART Furniture",
+        "date": "2014",
+        "company": "예술의전당",
+        "location": "서울",
+        "desc": "아트 퍼니처 전시"
+      },
+      {
+        "title": "CHAIRTECTURE",
+        "date": "2012",
+        "company": "송은아트큐브",
+        "location": "서울",
+        "desc": "의자 디자인 전시"
+      },
+      {
+        "title": "광주디자인비엔날레: Sweet Parliament Home",
+        "date": "2011",
+        "company": "圖可圖非常圖 (Design is design is not design)",
+        "location": "광주",
+        "desc": "디자인 비엔날레 — 팀 설치작업"
+      },
+      {
+        "title": "Green Furry Thing Called Moss",
+        "date": "2015",
+        "company": "Field Constructs Design Competition",
+        "location": "Austin, TX",
+        "desc": "랜드스케이프 설치 공모전 — 팀 출품"
+      },
+      {
+        "title": "The Works of Rookie 2015",
+        "date": "2015",
+        "company": "건축과문화",
+        "location": "",
+        "desc": "게재: 도시 맥락 속의 추모 건축: 부재의 존재를 설계하다"
+      },
+      {
+        "title": "디자인 스튜디오 크리틱 / 리뷰어",
+        "date": "2014 – 2022",
+        "company": "건국대학교 건축전문대학원",
+        "location": "서울",
+        "desc": "Prof. Brian Grieb 스튜디오"
+      }
+    ],
     "secProj": "프로젝트",
     "projects": [
       { "name": "아키히어", "sub": "하우빌드", "href": "https://archi-here.howbuild.com/projects" },

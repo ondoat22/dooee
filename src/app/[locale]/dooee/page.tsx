@@ -50,6 +50,13 @@ type Job = {
   bullets: Bullet[];
 };
 type ProfGroup = { label: string; items: string[] };
+type Recognition = {
+  title: string;
+  date: string;
+  company: string;
+  location: string;
+  desc: string;
+};
 type Project = { name: string; sub: string; href: string };
 
 const projLogos = [
@@ -65,7 +72,7 @@ const C = {
   secondary: 'text-neutral-600 dark:text-neutral-500',
   muted: 'text-neutral-500 dark:text-neutral-600',
   dim: 'text-neutral-400 dark:text-neutral-700',
-  border: 'border-neutral-200 dark:border-neutral-900',
+  border: 'border-neutral-200 dark:border-neutral-800',
 };
 
 function CalIcon() {
@@ -114,6 +121,7 @@ export default async function DooeePage({
   const aboutItems = t.raw('aboutItems') as string[];
   const prof = t.raw('prof') as ProfGroup[];
   const jobs = t.raw('jobs') as Job[];
+  const recognition = t.raw('recognition') as Recognition[];
   const projects = t.raw('projects') as Project[];
 
   return (
@@ -121,7 +129,7 @@ export default async function DooeePage({
       <DooeeStickyNav backLabel={t('back')} />
 
       <div className="max-w-[1100px] mx-auto px-12 pt-14 pb-28 max-[720px]:px-6 max-[720px]:pt-10 max-[720px]:pb-20">
-        <h1 className={`text-[34px] font-medium -tracking-[0.01em] leading-none ${C.primary} mb-12 max-[720px]:text-[22px]`}>
+        <h1 className={`text-[27px] font-medium -tracking-[0.01em] leading-none ${C.primary} mb-12 max-[720px]:text-[18px]`}>
           {t('name')}
         </h1>
 
@@ -211,6 +219,33 @@ export default async function DooeePage({
                     ))}
                   </ul>
                 </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Recognition */}
+        <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
+            {t('secRecognition')}
+          </h2>
+          <div>
+            {recognition.map((r, idx) => (
+              <div
+                key={idx}
+                className={`max-w-[380px] ${idx === 0 ? 'pb-4' : `py-4 border-t ${C.border}`}`}
+              >
+                <div className={`text-[15px] font-normal ${C.primary} mb-1.5`}>{r.title}</div>
+                <MetaRow>
+                  {r.date && <span className="inline-flex items-center gap-1"><CalIcon /> {r.date}</span>}
+                  {r.company && <span className="inline-flex items-center gap-1"><BagIcon /> {r.company}</span>}
+                  {r.location && <span className="inline-flex items-center gap-1"><PinIcon /> {r.location}</span>}
+                </MetaRow>
+                {r.desc && (
+                  <div className={`text-[13px] ${C.muted} leading-[1.45] max-w-[380px]`}>
+                    <p>{r.desc}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>

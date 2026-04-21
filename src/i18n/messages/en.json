@@ -81,6 +81,51 @@
         ]
       }
     ],
+    "secRecognition": "Recognition",
+    "recognition": [
+      {
+        "title": "DAF 2014, ART Furniture",
+        "date": "2014",
+        "company": "Seoul Arts Center",
+        "location": "Seoul",
+        "desc": "Art furniture exhibition"
+      },
+      {
+        "title": "CHAIRTECTURE",
+        "date": "2012",
+        "company": "Songeun ArtCube",
+        "location": "Seoul",
+        "desc": "Chair design exhibition"
+      },
+      {
+        "title": "Gwangju Design Biennale: Sweet Parliament Home",
+        "date": "2011",
+        "company": "圖可圖非常圖 (Design is design is not design)",
+        "location": "Gwangju",
+        "desc": "Design biennale — team installation"
+      },
+      {
+        "title": "Green Furry Thing Called Moss",
+        "date": "2015",
+        "company": "Field Constructs Design Competition",
+        "location": "Austin, TX",
+        "desc": "Landscape installation competition — team entry"
+      },
+      {
+        "title": "The Works of Rookie 2015",
+        "date": "2015",
+        "company": "Magazine of Architecture and Culture",
+        "location": "",
+        "desc": "Featured: The Memorial Architecture in an Urban Context: Designing the Presence of Something Absent"
+      },
+      {
+        "title": "Design Studio Critic / Reviewer",
+        "date": "2014 – 2022",
+        "company": "Konkuk Univ. Graduate School of Architecture",
+        "location": "Seoul",
+        "desc": "Studio led by Prof. Brian Grieb"
+      }
+    ],
     "secProj": "Projects",
     "projects": [
       { "name": "ARCHI-HERE", "sub": "HOWBUILD", "href": "https://archi-here.howbuild.com/projects" },
