@@ -25,11 +25,11 @@ export default async function MainPage({
         <p className="text-[17px] font-normal -tracking-[0.01em] text-black dark:text-white mb-5">
           {t('title')}
         </p>
-        <p className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-500 dark:text-neutral-500 mb-5">
+        <p className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-400 dark:text-neutral-500 mb-5">
           {t('welcome')}
         </p>
         <p
-          className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-500 dark:text-neutral-500 mb-5"
+          className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-400 dark:text-neutral-500 mb-5"
           dangerouslySetInnerHTML={{ __html: t.raw('tagline') as string }}
         />
         <p
@@ -37,7 +37,7 @@ export default async function MainPage({
           dangerouslySetInnerHTML={{ __html: t.raw('sub') as string }}
         />
         <p
-          className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-500 dark:text-neutral-500 mb-9"
+          className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-400 dark:text-neutral-500 mb-9"
           dangerouslySetInnerHTML={{ __html: t.raw('construction') as string }}
         />
 
