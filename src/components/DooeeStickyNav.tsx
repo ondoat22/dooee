@@ -17,7 +17,7 @@ const innerClass = [
 const backLinkClass = [
   'inline-flex items-center gap-1.5',
   'text-[11px] tracking-[0.1em] uppercase',
-  'text-neutral-500 dark:text-neutral-600 hover:text-ondo-red transition-colors',
+  'text-neutral-500 dark:text-neutral-600 hover:text-ondo-red dark:hover:text-ondo-red transition-colors',
 ].join(' ');
 
 export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {

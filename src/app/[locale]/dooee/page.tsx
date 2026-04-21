@@ -311,7 +311,7 @@ export default async function DooeePage({
           <div>
             <a
               href="mailto:ondo@ondo.at"
-              className={`text-sm ${C.muted} inline-flex items-center gap-1.5 transition-all hover:opacity-60 hover:gap-2.5`}
+              className={`text-sm ${C.muted} inline-flex items-center gap-1.5 transition-all hover:text-ondo-red dark:hover:text-ondo-red hover:gap-2.5`}
             >
               {t('contactLabel')} →
             </a>

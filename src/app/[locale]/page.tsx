@@ -33,7 +33,7 @@ export default async function MainPage({
           dangerouslySetInnerHTML={{ __html: t.raw('tagline') as string }}
         />
         <p
-          className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-500 dark:text-neutral-500 mb-5"
+          className="text-[15px] leading-[1.3em] -tracking-[0.01em] text-neutral-700 dark:text-neutral-300 mb-5"
           dangerouslySetInnerHTML={{ __html: t.raw('sub') as string }}
         />
         <p
