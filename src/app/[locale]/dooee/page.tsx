@@ -123,6 +123,20 @@ export default async function DooeePage({
   const jobs = t.raw('jobs') as Job[];
   const recognition = t.raw('recognition') as Recognition[];
   const projects = t.raw('projects') as Project[];
+  const projRoles = locale === 'kr'
+    ? ['제품 책임자', '건축사', '디자인 총괄', '디자인 총괄']
+    : ['Product Owner', 'Architect', 'Lead Designer', 'Lead Designer'];
+
+  const thumbClass = (i: number) =>
+    `w-9 h-9 flex-shrink-0 overflow-hidden flex items-center justify-center ${
+      i === 1
+        ? 'rounded-[7px] bg-transparent'
+        : i === 2
+          ? 'rounded-[4px] bg-neutral-200 dark:bg-black'
+          : i === 3
+            ? 'rounded-full bg-black'
+            : 'bg-neutral-200 dark:bg-black'
+    }`;
 
   return (
     <div className="min-h-screen bg-white text-neutral-900 dark:bg-ondo-bg dark:text-white">
@@ -264,15 +278,7 @@ export default async function DooeePage({
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-neutral-100 dark:bg-ondo-card rounded-lg px-3.5 py-3 transition-colors hover:bg-neutral-200 dark:hover:bg-ondo-card2 group"
                 >
-                  <div className={`w-9 h-9 flex-shrink-0 overflow-hidden flex items-center justify-center ${
-                    i === 1
-                      ? 'rounded-[7px] bg-transparent'
-                      : i === 2
-                        ? 'rounded-[4px] bg-neutral-200 dark:bg-black'
-                        : i === 3
-                          ? 'rounded-full bg-black'
-                          : 'bg-neutral-200 dark:bg-black'
-                  }`}>
+                  <div className={thumbClass(i)}>
                     <Image
                       src={projLogos[i]}
                       alt=""
@@ -281,9 +287,14 @@ export default async function DooeePage({
                       className={i === 1 ? 'w-full h-full object-contain' : 'w-full h-full object-cover'}
                     />
                   </div>
-                  <div className="flex-1">
-                    <div className={`text-[13px] ${C.secondary} mb-0.5`}>{p.name}</div>
-                    <div className={`text-[10px] ${C.dim} uppercase tracking-[0.07em]`}>{p.sub}</div>
+                  <div className="flex-1 min-w-0 relative overflow-hidden">
+                    <div className="transition-transform duration-200 group-hover:-translate-y-full">
+                      <div className={`text-[13px] ${C.secondary} mb-0.5`}>{p.name}</div>
+                      <div className={`text-[10px] ${C.dim} uppercase tracking-[0.07em]`}>{p.sub}</div>
+                    </div>
+                    <div className="absolute inset-0 flex items-center translate-y-full transition-transform duration-200 group-hover:translate-y-0">
+                      <div className={`text-[13px] ${C.secondary}`}>{projRoles[i]}</div>
+                    </div>
                   </div>
                   <span className={`text-[13px] ${C.dim} transition-all group-hover:text-ondo-red group-hover:translate-x-0.5`}>→</span>
                 </a>
