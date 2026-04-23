@@ -2,8 +2,19 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { locales } from '@/i18n/config';
+import { locales, type Locale } from '@/i18n/config';
 import DooeeStickyNav from '@/components/DooeeStickyNav';
+
+const dooeeMeta: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'Dooee Kim — Architect & Product Owner | ONDO',
+    description: 'Architect and Product Owner, turning ideas into spaces and services.',
+  },
+  kr: {
+    title: '김두이 — 건축사 & 프로덕트 오너 | ONDO',
+    description: '건축사이자 프로덕트 오너로, 아이디어를 공간과 서비스로 구현합니다.',
+  },
+};
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -17,21 +28,21 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!(locales as readonly string[]).includes(locale)) notFound();
 
-  const t = await getTranslations({ locale, namespace: 'meta' });
+  const { title, description } = dooeeMeta[locale as Locale];
   return {
-    title: t('dooeeTitle'),
-    description: t('dooeeDescription'),
+    title,
+    description,
     alternates: {
       canonical: `/${locale}/dooee`,
       languages: {
         en: '/en/dooee',
         ko: '/kr/dooee',
-        'x-default': '/en/dooee',
+        'x-default': '/kr/dooee',
       },
     },
     openGraph: {
-      title: t('dooeeTitle'),
-      description: t('dooeeDescription'),
+      title,
+      description,
       url: `/${locale}/dooee`,
       type: 'profile',
       locale: locale === 'kr' ? 'ko_KR' : 'en_US',
