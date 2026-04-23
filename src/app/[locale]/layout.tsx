@@ -40,11 +40,20 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
       locale: locale === 'kr' ? 'ko_KR' : 'en_US',
+      images: [
+        {
+          url: '/images/og.png',
+          width: 1200,
+          height: 630,
+          alt: 'ONDO Architects',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
+      images: ['/images/og.png'],
     },
   };
 }
