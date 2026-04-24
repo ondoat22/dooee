@@ -80,9 +80,9 @@ const projLogos = [
 /* ── semantic color classes (light default, dark variant) ── */
 const C = {
   primary: 'text-neutral-900 dark:text-white',
-  secondary: 'text-neutral-600 dark:text-neutral-500',
-  muted: 'text-neutral-500 dark:text-neutral-600',
-  dim: 'text-neutral-400 dark:text-neutral-700',
+  secondary: 'text-neutral-600 dark:text-neutral-400',
+  muted: 'text-neutral-500 dark:text-neutral-400',
+  dim: 'text-neutral-400 dark:text-neutral-500',
   border: 'border-neutral-200 dark:border-neutral-800',
 };
 
