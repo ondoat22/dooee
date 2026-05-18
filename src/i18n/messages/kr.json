@@ -18,7 +18,7 @@
       { "label": "기술", "items": ["건축설계", "인테리어 디자인", "공간 디자인", "방향성과 전략 중심으로 프로덕트 기획"] },
       { "label": "디자인 툴", "items": ["오토데스크 프로그램", "어도비 디자인 프로그램", "라이노 3D", "스케치업 3D"] },
       { "label": "협업 툴", "items": ["구글 워크스페이스", "슬랙", "노션", "피그마 (기본)"] },
-      { "label": "AI 활용", "items": ["Chat GPT", "Claude", "Gemini"] }
+      { "label": "AI 활용", "items": ["Chat GPT", "Claude", "Gemini", "Obsidian"] }
     ],
     "secWork": "경력",
     "jobs": [

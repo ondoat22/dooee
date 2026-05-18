@@ -18,7 +18,7 @@
       { "label": "Skills", "items": ["Architectural Design", "Interior Design", "Spatial Design", "Product Management", "Product Strategy"] },
       { "label": "Design Tools", "items": ["Autodesk Software", "Adobe Creative Cloud", "Rhino", "SketchUp"] },
       { "label": "Collaboration Tools", "items": ["Google Workspace", "Slack", "Notion", "Figma (basic)"] },
-      { "label": "AI Tools", "items": ["Chat GPT", "Claude", "Gemini"] }
+      { "label": "AI Tools", "items": ["Chat GPT", "Claude", "Gemini", "Obsidian"] }
     ],
     "secWork": "Work",
     "jobs": [
