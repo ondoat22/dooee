@@ -3,9 +3,9 @@ import './globals.css';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ondo.at';
 
-const TITLE = 'ONDO Architects';
+const TITLE = '온도 건축 | ONDO Architects';
 const DESCRIPTION =
-  "우리는 공간의 '알맞은 온도'를 설계합니다. / We design spaces with the right temperature for where they belong.";
+  '온도 건축사사무소, 모든 것에 가장 알맞은 온도를 설계합니다. (서울 / 제주)';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -32,6 +32,14 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: ['/images/og.png'],
   },
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
