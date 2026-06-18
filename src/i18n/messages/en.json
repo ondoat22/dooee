@@ -11,8 +11,11 @@
     "back": "ondo.at",
     "name": "Dooee Kim",
     "aboutLabel": "About",
-    "aboutItems": ["Architect", "Product Owner", "Based in Korea", "10+ Years Experience", "KIRA · Seoul Chapter Member", "KIFA Member", "Building Architects Platform", "Open to Work"],
     "aboutDesc": "Architect and Product Owner, turning ideas into spaces and services.",
+    "aboutCore": ["Architect", "Product Owner", "Based in Korea", "10+ Years Experience"],
+    "aboutStatus": "Currently building Architects Platform",
+    "aboutAffiliationLabel": "Affiliations",
+    "aboutAffiliations": ["KIRA · Seoul Chapter Council Member", "KIFA"],
     "secProf": "Proficiencies",
     "prof": [
       { "label": "Skills", "items": ["Architectural Design", "Interior Design", "Spatial Design", "Product Management", "Product Strategy"] },
@@ -121,6 +124,27 @@
         "desc": "Studio led by Prof. Brian Grieb"
       }
     ],
+    "secIp": "Patents + Software",
+    "ipGroups": [
+      {
+        "label": "Patents",
+        "items": [
+          { "title": "Preprocessing Method for Architectural Design Models and Automated BIM Modeling", "code": "10-2023-0097708", "role": "Co-inventor" },
+          { "title": "Web-based Architectural Design Decision Support Method and System", "code": "10-2023-0111296", "role": "Co-inventor" },
+          { "title": "Quantity Calculation Method Using BIM Data with Improved Accuracy", "code": "10-2023-0097709", "role": "Co-inventor" },
+          { "title": "Selection, Diagnostic, and Design Automation Platform for Green Remodeling", "code": "10-2023-0172520", "role": "Co-contributor" }
+        ]
+      },
+      {
+        "label": "Software",
+        "items": [
+          { "title": "Facade Area Calculator", "code": "C-2024-043896", "role": "Co-author" },
+          { "title": "Digital Assessment System for Selecting Green Remodeling Candidate Sites", "code": "C-2025-051562", "role": "Co-author" },
+          { "title": "Managing Changes and Statements of Interior and Exterior Finishing Materials", "code": "C-2025-053863", "role": "Co-author" },
+          { "title": "Material Data Preset for Building Remodeling", "code": "C-2025-053864", "role": "Co-author" }
+        ]
+      }
+    ],
     "secProj": "Projects",
     "projects": [
       { "name": "ARCHI-HERE", "sub": "HOWBUILD", "href": "https://archi-here.howbuild.com/projects" },
@@ -129,6 +153,7 @@
       { "name": "HAKDONG OFFICE (ESPACE)", "sub": "BOUNDLESS", "href": "https://c3globe.com/espace-by-zero-to-n/" }
     ],
     "secContact": "Contact",
+    "contactStatus": "Open to Work",
     "contactLabel": "Mail"
   }
 }

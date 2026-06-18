@@ -129,10 +129,12 @@ export default async function DooeePage({
   unstable_setRequestLocale(locale);
   const t = await getTranslations('dooee');
 
-  const aboutItems = t.raw('aboutItems') as string[];
+  const aboutCore = t.raw('aboutCore') as string[];
+  const aboutAffiliations = t.raw('aboutAffiliations') as string[];
   const prof = t.raw('prof') as ProfGroup[];
   const jobs = t.raw('jobs') as Job[];
   const recognition = t.raw('recognition') as Recognition[];
+  const ipGroups = t.raw('ipGroups') as { label: string; items: { title: string; code: string; role: string }[] }[];
   const projects = t.raw('projects') as Project[];
   const projRoles = locale === 'kr'
     ? ['제품 책임자', '건축사', '디자인 총괄', '디자인 총괄']
@@ -162,18 +164,37 @@ export default async function DooeePage({
         <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
           <div aria-hidden />
           <div>
-            <div className="grid grid-cols-[160px_1fr] gap-x-8 pb-4 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2">
-              <div className={`text-[15px] ${C.primary} pt-px`}>{t('aboutLabel')}</div>
+            {/* Bio */}
+            <div className="pb-4 max-w-[380px]">
+              <div className={`text-[15px] font-medium ${C.primary} mb-1.5`}>{t('aboutLabel')}</div>
+              <p className={`text-[15px] font-medium ${C.primary} leading-[1.5] break-keep`}>{t('aboutDesc')}</p>
+            </div>
+
+            {/* Core info + status */}
+            <div className={`grid grid-cols-[160px_1fr] gap-x-8 py-4 items-start max-w-[380px] border-t ${C.border} max-[720px]:grid-cols-1 max-[720px]:gap-2`}>
+              <div aria-hidden />
+              <div>
+                <ul className="list-none">
+                  {aboutCore.map((item, i) => (
+                    <li key={i} className={`text-[15px] ${C.secondary} leading-[1.5] mb-[3px] break-keep`}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className={`text-[15px] ${C.muted} leading-[1.5] mt-3 break-keep`}>{t('aboutStatus')}</p>
+              </div>
+            </div>
+
+            {/* Affiliations */}
+            <div className={`grid grid-cols-[160px_1fr] gap-x-8 py-4 items-start max-w-[380px] border-t ${C.border} max-[720px]:grid-cols-1 max-[720px]:gap-2`}>
+              <div className={`text-[15px] ${C.primary} pt-px`}>{t('aboutAffiliationLabel')}</div>
               <ul className="list-none">
-                {aboutItems.map((item, i) => (
+                {aboutAffiliations.map((item, i) => (
                   <li key={i} className={`text-[15px] ${C.secondary} leading-[1.5] mb-[3px] break-keep`}>
                     {item}
                   </li>
                 ))}
               </ul>
-              <p className={`col-span-full text-[15px] ${C.muted} leading-[1.6] pt-4 mt-1 border-t ${C.border} max-w-[380px]`}>
-                {t('aboutDesc')}
-              </p>
             </div>
           </div>
         </section>
@@ -274,6 +295,38 @@ export default async function DooeePage({
           </div>
         </section>
 
+        {/* Patents & Software */}
+        <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
+            {t('secIp')}
+          </h2>
+          <div>
+            {ipGroups.map((g, i) => (
+              <div
+                key={i}
+                className={`max-w-[380px] ${i === 0 ? 'pb-4' : `pt-4 border-t ${C.border}`}`}
+              >
+                <div className={`text-[15px] ${C.primary} mb-3`}>{g.label}</div>
+                <ul className="list-none">
+                  {g.items.map((item, j) => (
+                    <li key={j} className="mb-3 last:mb-0">
+                      <div className="flex items-start gap-2 justify-between">
+                        <div className={`text-[13px] ${C.secondary} leading-[1.45] break-keep flex-1 min-w-0`}>
+                          {item.title}
+                        </div>
+                        <span className="text-[10px] text-red-500/80 dark:text-red-400/80 bg-red-50 dark:bg-red-950/30 border border-red-100 dark:border-red-900/50 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0 mt-px">
+                          {item.role}
+                        </span>
+                      </div>
+                      <div className={`text-[11px] ${C.dim} mt-0.5 tracking-[0.02em]`}>{item.code}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Projects */}
         <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
           <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
@@ -320,6 +373,7 @@ export default async function DooeePage({
             {t('secContact')}
           </h2>
           <div>
+            <div className={`text-[15px] ${C.secondary} mb-2`}>{t('contactStatus')}</div>
             <a
               href="mailto:ondo@ondo.at"
               className={`text-sm ${C.muted} inline-flex items-center gap-1.5 transition-all hover:text-ondo-red dark:hover:text-ondo-red hover:gap-2.5`}
