@@ -158,6 +158,7 @@
       { "name": "Professional Works", "hoverLabel": "", "folder": "professional" },
       { "name": "Academic Works", "hoverLabel": "", "folder": "academic" }
     ],
+    "portfolioCaption": "Reference",
     "portfolioEmpty": "Images coming soon",
     "mailCopy": "Copy address",
     "mailCopied": "Copied!",

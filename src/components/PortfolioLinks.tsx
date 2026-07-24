@@ -31,7 +31,19 @@ export default function PortfolioLinks({ portfolios }: { portfolios: Portfolio[]
 
   return (
     <>
-      <div className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-col gap-3 items-start max-w-[380px]">
+      <div className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-800 max-w-[380px]">
+        <div className="mb-2.5">
+          <span className="relative inline-block">
+            <span className="relative z-10 text-[10px] uppercase tracking-[0.12em] text-neutral-900 dark:text-white">
+              {t('portfolioCaption')}
+            </span>
+            <span
+              aria-hidden
+              className="absolute left-0 right-0 bottom-[1px] h-[8px] rounded-[1px] bg-yellow-300/50 z-0"
+            />
+          </span>
+        </div>
+        <div className="flex flex-col gap-2 items-start">
         {portfolios.map((pf, i) =>
           pf.hoverLabel ? (
             <button
@@ -55,20 +67,21 @@ export default function PortfolioLinks({ portfolios }: { portfolios: Portfolio[]
               key={i}
               type="button"
               onClick={() => open(i)}
-              className="group/pf relative inline-block text-sm text-neutral-900 dark:text-white transition-colors hover:text-ondo-red dark:hover:text-ondo-red"
+              className="group/pf relative inline-block text-[11px] tracking-[0.02em] text-neutral-400 dark:text-neutral-500 transition-colors hover:text-ondo-red dark:hover:text-ondo-red"
             >
               {pf.name}
               <span className="pointer-events-none absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-ondo-red transition-transform duration-300 ease-out group-hover/pf:scale-x-100" />
             </button>
           )
         )}
+        </div>
       </div>
 
       <Modal
         open={active !== null}
         onClose={close}
         labelledBy="portfolio-modal-title"
-        panelClassName="relative w-full max-w-4xl bg-white dark:bg-ondo-card rounded-xl shadow-2xl border border-black/5 dark:border-white/5"
+        panelClassName="relative w-full max-w-2xl bg-white dark:bg-ondo-card rounded-xl shadow-2xl border border-black/5 dark:border-white/5"
       >
         {active && (
           <div className="p-4">
@@ -79,7 +92,7 @@ export default function PortfolioLinks({ portfolios }: { portfolios: Portfolio[]
               {active.name}
             </div>
 
-            <div className="relative h-[58vh] sm:h-[70vh] bg-neutral-100 dark:bg-black rounded-lg overflow-hidden flex items-center justify-center select-none">
+            <div className="relative h-[50vh] sm:h-[60vh] bg-white rounded-lg overflow-hidden flex items-center justify-center select-none">
               {slides[slide] ? (
                 <Image
                   src={slides[slide] as string}

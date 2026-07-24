@@ -158,6 +158,7 @@
       { "name": "Professional Works", "hoverLabel": "", "folder": "professional" },
       { "name": "Academic Works", "hoverLabel": "", "folder": "academic" }
     ],
+    "portfolioCaption": "참고자료",
     "portfolioEmpty": "이미지 준비 중",
     "mailCopy": "주소 복사",
     "mailCopied": "복사됨!",
