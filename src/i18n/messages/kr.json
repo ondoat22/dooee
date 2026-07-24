@@ -125,6 +125,7 @@
       }
     ],
     "secIp": "특허 + 소프트웨어 등록",
+    "secIpNav": "특허",
     "ipGroups": [
       {
         "label": "특허",

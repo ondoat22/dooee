@@ -222,7 +222,7 @@ export default async function DooeePage({
         </section>
 
         {/* Proficiencies */}
-        <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+        <section id="proficiencies" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
           <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secProf')}
           </h2>
@@ -248,7 +248,7 @@ export default async function DooeePage({
         </section>
 
         {/* Work */}
-        <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+        <section id="work" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
           <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secWork')}
           </h2>
@@ -291,7 +291,7 @@ export default async function DooeePage({
         </section>
 
         {/* Recognition */}
-        <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+        <section id="recognition" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
           <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secRecognition')}
           </h2>
@@ -318,7 +318,7 @@ export default async function DooeePage({
         </section>
 
         {/* Patents & Software */}
-        <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+        <section id="patents" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
           <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secIp')}
           </h2>
@@ -350,7 +350,7 @@ export default async function DooeePage({
         </section>
 
         {/* Projects */}
-        <section className="grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+        <section id="projects" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
           <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secProj')}
           </h2>
@@ -407,7 +407,7 @@ export default async function DooeePage({
         </section>
 
         {/* Contact */}
-        <section className="grid grid-cols-[280px_1fr] gap-0 items-start max-[720px]:grid-cols-1 max-[720px]:gap-5">
+        <section id="contact" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 items-start max-[720px]:grid-cols-1 max-[720px]:gap-5">
           <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
             {t('secContact')}
           </h2>
