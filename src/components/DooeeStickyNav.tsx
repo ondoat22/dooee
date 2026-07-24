@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import HeaderControls from './HeaderControls';
@@ -28,6 +29,7 @@ const sectionLinkClass = [
 
 export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
   const t = useTranslations('dooee');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const sections = [
     { id: 'proficiencies', label: t('secProf') },
@@ -45,6 +47,7 @@ export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
           ← {backLabel}
         </Link>
 
+        {/* Desktop TOC */}
         <div className="hidden lg:flex items-center gap-5">
           {sections.map((s) => (
             <a key={s.id} href={`#${s.id}`} className={sectionLinkClass}>
@@ -53,8 +56,52 @@ export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
           ))}
         </div>
 
-        <HeaderControls position="inline" />
+        <div className="flex items-center gap-3">
+          {/* Mobile / tablet menu toggle */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Sections"
+            aria-expanded={menuOpen}
+            className="lg:hidden flex items-center justify-center w-5 h-5 text-neutral-500 dark:text-neutral-400 hover:text-ondo-red dark:hover:text-ondo-red transition-colors"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden>
+              {menuOpen ? (
+                <>
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
+
+          <HeaderControls position="inline" />
+        </div>
       </div>
+
+      {/* Mobile / tablet dropdown */}
+      {menuOpen && (
+        <div className="lg:hidden border-t border-black/5 dark:border-white/5">
+          <div className="max-w-[1100px] mx-auto px-6 py-4 flex flex-col gap-3">
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                onClick={() => setMenuOpen(false)}
+                className="text-[13px] text-neutral-600 dark:text-neutral-400 hover:text-ondo-red dark:hover:text-ondo-red transition-colors"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
