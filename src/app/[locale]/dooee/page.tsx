@@ -1,9 +1,27 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/i18n/config';
 import DooeeStickyNav from '@/components/DooeeStickyNav';
+import PortfolioLinks from '@/components/PortfolioLinks';
+import ContactMail from '@/components/ContactMail';
+
+/* Read portfolio page images from public/portfolio/<folder>, sorted by filename. */
+function listPortfolioImages(folder: string): string[] {
+  try {
+    const dir = path.join(process.cwd(), 'public', 'portfolio', folder);
+    return fs
+      .readdirSync(dir)
+      .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+      .map((f) => `/portfolio/${folder}/${f}`);
+  } catch {
+    return [];
+  }
+}
 
 const dooeeMeta: Record<Locale, { title: string; description: string }> = {
   en: {
@@ -68,9 +86,10 @@ type Recognition = {
   location: string;
   desc: string;
 };
-type Project = { name: string; sub: string; href: string };
+type Project = { name: string; sub: string; href: string; inProgress?: boolean };
 
 const projLogos = [
+  '/images/proj-jieumteo.png',
   '/images/proj-archi-here.png',
   '/images/stamp.png',
   '/images/proj-cheongna.png',
@@ -136,17 +155,20 @@ export default async function DooeePage({
   const recognition = t.raw('recognition') as Recognition[];
   const ipGroups = t.raw('ipGroups') as { label: string; items: { title: string; code: string; role: string }[] }[];
   const projects = t.raw('projects') as Project[];
+  const portfolios = (t.raw('portfolios') as { name: string; hoverLabel?: string; folder: string }[]).map(
+    (p) => ({ name: p.name, hoverLabel: p.hoverLabel, images: listPortfolioImages(p.folder) })
+  );
   const projRoles = locale === 'kr'
-    ? ['제품 책임자', '건축사', '디자인 총괄', '디자인 총괄']
-    : ['Product Owner', 'Architect', 'Lead Designer', 'Lead Designer'];
+    ? ['제품 책임자', '제품 책임자', '건축사', '디자인 총괄', '디자인 총괄']
+    : ['Product Owner', 'Product Owner', 'Architect', 'Lead Designer', 'Lead Designer'];
 
   const thumbClass = (i: number) =>
     `w-9 h-9 flex-shrink-0 overflow-hidden flex items-center justify-center ${
-      i === 1
+      i === 2
         ? 'rounded-[7px] bg-transparent'
-        : i === 2
+        : i === 3
           ? 'rounded-[4px] bg-neutral-200 dark:bg-black'
-          : i === 3
+          : i === 4
             ? 'rounded-full bg-black'
             : 'bg-neutral-200 dark:bg-black'
     }`;
@@ -348,12 +370,26 @@ export default async function DooeePage({
                       alt=""
                       width={36}
                       height={36}
-                      className={i === 1 ? 'w-full h-full object-contain' : 'w-full h-full object-cover'}
+                      className={
+                        i === 0
+                          ? 'w-[72%] h-[72%] object-contain'
+                          : i === 2
+                            ? 'w-full h-full object-contain'
+                            : 'w-full h-full object-cover'
+                      }
                     />
                   </div>
                   <div className="flex-1 min-w-0 relative overflow-hidden">
                     <div className="transition-transform duration-200 group-hover:-translate-y-full">
-                      <div className={`text-[13px] ${C.secondary} mb-0.5`}>{p.name}</div>
+                      <div className={`text-[13px] ${C.secondary} mb-0.5 flex items-center gap-1.5`}>
+                        {p.name}
+                        {p.inProgress && (
+                          <span className="inline-flex items-center gap-1 text-[10px] text-ondo-red bg-ondo-red/10 px-1.5 py-px rounded-full flex-shrink-0">
+                            <span className="w-1 h-1 rounded-full bg-ondo-red animate-pulse" />
+                            {t('inProgressLabel')}
+                          </span>
+                        )}
+                      </div>
                       <div className={`text-[10px] ${C.dim} uppercase tracking-[0.07em]`}>{p.sub}</div>
                     </div>
                     <div className="absolute inset-0 flex items-center translate-y-full transition-transform duration-200 group-hover:translate-y-0">
@@ -364,6 +400,9 @@ export default async function DooeePage({
                 </a>
               ))}
             </div>
+
+            {/* Portfolios — carousel modal */}
+            <PortfolioLinks portfolios={portfolios} />
           </div>
         </section>
 
@@ -374,12 +413,7 @@ export default async function DooeePage({
           </h2>
           <div>
             <div className={`text-[15px] ${C.secondary} mb-2`}>{t('contactStatus')}</div>
-            <a
-              href="mailto:ondo@ondo.at"
-              className={`text-sm ${C.muted} inline-flex items-center gap-1.5 transition-all hover:text-ondo-red dark:hover:text-ondo-red hover:gap-2.5`}
-            >
-              {t('contactLabel')} →
-            </a>
+            <ContactMail email="ondo@ondo.at" />
           </div>
         </section>
       </div>

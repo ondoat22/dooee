@@ -146,12 +146,23 @@
       }
     ],
     "secProj": "Projects",
+    "inProgressLabel": "In progress",
     "projects": [
+      { "name": "platform jieumteo", "sub": "HOWBUILD", "href": "https://agent-hub.howbuild.com/artifacts/c05e17c68a3cea690d96d621/hb-new.html", "inProgress": true },
       { "name": "ARCHI-HERE", "sub": "HOWBUILD", "href": "https://archi-here.howbuild.com/projects" },
       { "name": "Detached House in Songdo + Smacon", "sub": "ONDO + HOWBUILD", "href": "https://smacon.howbuild.com/sites/demo/quantity-review" },
       { "name": "Detached House in Cheongna", "sub": "ZMJ", "href": "https://naver.me/FbV9QxQ4" },
       { "name": "HAKDONG OFFICE (ESPACE)", "sub": "BOUNDLESS", "href": "https://c3globe.com/espace-by-zero-to-n/" }
     ],
+    "portfolios": [
+      { "name": "Professional Works", "hoverLabel": "", "folder": "professional" },
+      { "name": "Academic Works", "hoverLabel": "", "folder": "academic" }
+    ],
+    "portfolioEmpty": "Images coming soon",
+    "mailCopy": "Copy address",
+    "mailCopied": "Copied!",
+    "mailOpen": "Open mail app",
+    "close": "Close",
     "secContact": "Contact",
     "contactStatus": "Open to Work",
     "contactLabel": "Mail"

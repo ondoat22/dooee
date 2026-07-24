@@ -37,3 +37,8 @@
     opacity: 0.25;
   }
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
