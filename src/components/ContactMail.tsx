@@ -34,7 +34,7 @@ export default function ContactMail({ email }: { email: string }) {
           <div id="contact-modal-title" className="text-[15px] font-medium text-neutral-900 dark:text-white mb-1">
             {t('secContact')}
           </div>
-          <div className="text-[13px] text-neutral-500 dark:text-neutral-400 mb-5 select-all">{email}</div>
+          <div className="text-[13px] text-neutral-500 dark:text-neutral-400 mb-5">{email}</div>
           <div className="flex gap-2">
             <button
               type="button"

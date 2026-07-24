@@ -11,8 +11,12 @@
     background: #fff;
     color: #111;
     -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
   }
   a { text-decoration: none; color: inherit; }
+  img { -webkit-user-drag: none; user-drag: none; }
 
   /* Korean font override */
   html[lang="kr"] body,
