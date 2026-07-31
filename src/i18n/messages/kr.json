@@ -149,7 +149,7 @@
     "secProj": "프로젝트",
     "inProgressLabel": "진행중",
     "projects": [
-      { "name": "지음터", "sub": "하우빌드", "href": "https://agent-hub.howbuild.com/artifacts/c05e17c68a3cea690d96d621/hb-new.html", "inProgress": true },
+      { "name": "지음터", "sub": "하우빌드", "href": "https://jieumteo.kr/", "inProgress": true },
       { "name": "아키히어", "sub": "하우빌드", "href": "https://archi-here.howbuild.com/projects" },
       { "name": "송도단독주택 + 스마콘", "sub": "김두이 + 하우빌드", "href": "https://smacon.howbuild.com/sites/demo/quantity-review" },
       { "name": "청라단독주택", "sub": "지음재", "href": "https://naver.me/FbV9QxQ4" },
