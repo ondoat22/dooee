@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import HeaderControls from './HeaderControls';
@@ -22,14 +22,31 @@ const backLinkClass = [
   'text-neutral-500 dark:text-neutral-600 hover:text-ondo-red dark:hover:text-ondo-red transition-colors',
 ].join(' ');
 
-const sectionLinkClass = [
-  'text-[11px] tracking-[0.04em] whitespace-nowrap',
-  'text-neutral-500 dark:text-neutral-500 hover:text-ondo-red dark:hover:text-ondo-red transition-colors',
-].join(' ');
+const SECTION_IDS = ['proficiencies', 'work', 'recognition', 'patents', 'projects', 'contact'];
 
 export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
   const t = useTranslations('dooee');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeId, setActiveId] = useState('');
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollPos = window.scrollY + 120; // sticky-nav offset
+      let current = '';
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) current = id;
+      }
+      // near the very bottom, force the last section active
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+        current = SECTION_IDS[SECTION_IDS.length - 1];
+      }
+      setActiveId(current);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const sections = [
     { id: 'proficiencies', label: t('secProf') },
@@ -40,6 +57,9 @@ export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
     { id: 'contact', label: t('secContact') },
   ];
 
+  const idleColor = 'text-neutral-500 dark:text-neutral-500 hover:text-ondo-red dark:hover:text-ondo-red';
+  const ONDO_RED = '#e8210a';
+
   return (
     <nav className={navClass}>
       <div className={innerClass}>
@@ -49,11 +69,19 @@ export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
 
         {/* Desktop TOC */}
         <div className="hidden lg:flex items-center gap-5">
-          {sections.map((s) => (
-            <a key={s.id} href={`#${s.id}`} className={sectionLinkClass}>
-              {s.label}
-            </a>
-          ))}
+          {sections.map((s) => {
+            const active = activeId === s.id;
+            return (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className={`text-[11px] tracking-[0.04em] whitespace-nowrap transition-colors ${active ? '' : idleColor}`}
+                style={active ? { color: ONDO_RED } : undefined}
+              >
+                {s.label}
+              </a>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-3">
@@ -89,16 +117,20 @@ export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
       {menuOpen && (
         <div className="lg:hidden border-t border-black/5 dark:border-white/5">
           <div className="max-w-[1100px] mx-auto px-6 py-4 flex flex-col gap-3">
-            {sections.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                onClick={() => setMenuOpen(false)}
-                className="text-[13px] text-neutral-600 dark:text-neutral-400 hover:text-ondo-red dark:hover:text-ondo-red transition-colors"
-              >
-                {s.label}
-              </a>
-            ))}
+            {sections.map((s) => {
+              const active = activeId === s.id;
+              return (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-[13px] transition-colors ${active ? '' : idleColor}`}
+                  style={active ? { color: ONDO_RED } : undefined}
+                >
+                  {s.label}
+                </a>
+              );
+            })}
           </div>
         </div>
       )}
