@@ -221,31 +221,33 @@ export default async function DooeePage({
           </div>
         </section>
 
-        {/* Proficiencies */}
-        <section id="proficiencies" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
-          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
-            {t('secProf')}
-          </h2>
-          <div>
-            {prof.map((g, i) => (
-              <div
-                key={i}
-                className={`grid grid-cols-[160px_1fr] gap-x-8 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2 ${
-                  i === 0 ? 'pb-4' : `py-4 border-t ${C.border}`
-                }`}
-              >
-                <div className={`text-[15px] ${C.primary} pt-px`}>{g.label}</div>
-                <ul className="list-none">
-                  {g.items.map((item, j) => (
-                    <li key={j} className={`text-[15px] ${C.secondary} leading-[1.5] mb-[3px] break-keep`}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Proficiencies — hidden per request; keep for easy restore */}
+        {false && (
+          <section id="proficiencies" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
+            <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
+              {t('secProf')}
+            </h2>
+            <div>
+              {prof.map((g, i) => (
+                <div
+                  key={i}
+                  className={`grid grid-cols-[160px_1fr] gap-x-8 items-start max-w-[380px] max-[720px]:grid-cols-1 max-[720px]:gap-2 ${
+                    i === 0 ? 'pb-4' : `py-4 border-t ${C.border}`
+                  }`}
+                >
+                  <div className={`text-[15px] ${C.primary} pt-px`}>{g.label}</div>
+                  <ul className="list-none">
+                    {g.items.map((item, j) => (
+                      <li key={j} className={`text-[15px] ${C.secondary} leading-[1.5] mb-[3px] break-keep`}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Work */}
         <section id="work" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">

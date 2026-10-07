@@ -22,7 +22,7 @@ const backLinkClass = [
   'text-neutral-500 dark:text-neutral-600 hover:text-ondo-red dark:hover:text-ondo-red transition-colors',
 ].join(' ');
 
-const SECTION_IDS = ['proficiencies', 'work', 'recognition', 'patents', 'projects', 'contact'];
+const SECTION_IDS = ['work', 'recognition', 'patents', 'projects', 'contact'];
 
 export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
   const t = useTranslations('dooee');
@@ -49,7 +49,6 @@ export default function DooeeStickyNav({ backLabel }: { backLabel: string }) {
   }, []);
 
   const sections = [
-    { id: 'proficiencies', label: t('secProf') },
     { id: 'work', label: t('secWork') },
     { id: 'recognition', label: t('secRecognition') },
     { id: 'patents', label: t('secIpNav') },
