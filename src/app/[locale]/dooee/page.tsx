@@ -321,7 +321,7 @@ export default async function DooeePage({
 
         {/* Patents & Software */}
         <section id="patents" className="scroll-mt-24 grid grid-cols-[280px_1fr] gap-0 mb-[120px] items-start max-[720px]:grid-cols-1 max-[720px]:gap-5 max-[720px]:mb-[60px]">
-          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight`}>
+          <h2 className={`text-[clamp(1.19rem,2.125vw,1.7rem)] font-medium ${C.primary} leading-tight whitespace-pre-line`}>
             {t('secIp')}
           </h2>
           <div>
@@ -418,6 +418,9 @@ export default async function DooeePage({
             <ContactMail email="ondo@ondo.at" />
           </div>
         </section>
+
+        {/* Bottom spacer so any section can scroll to the top of the viewport */}
+        <div aria-hidden className="h-[calc(100vh-6rem)]" />
       </div>
     </div>
   );
